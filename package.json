@@ -1,0 +1,22 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "profile generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/km4891/team-profile-generator.git"
+  },
+  "author": "Kyle Morarity",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/km4891/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/km4891/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^26.5.3"
+  }
+}
