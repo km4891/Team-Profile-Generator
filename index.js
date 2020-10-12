@@ -35,6 +35,49 @@ const managerInput = () => {
     }
 
     ])
+
+    .then(response => {
+        const newManager = new Manager(response.name, response.id, response.email, response.phoneNumber);
+        employees.push(newManager);
+        staffInput();
+    });
 };
 
-managerInput();
+    const engineerInput = () => {
+        return inquirer.prompt([ {
+        
+            type: 'input',
+            name: 'name',
+            message: "Enter an engineer's name. (Required)",
+            validate: name => {
+                if (name) {
+                    return true;
+                } else {
+                    console.log('Please enter a valid response!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Enter an engineer's ID.",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter an engineer's email.",
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Enter an engineer's Github username."
+        }
+    
+        ])
+    };
+
+    engineerInput();
+
+
+    
