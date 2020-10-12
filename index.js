@@ -77,7 +77,41 @@ const managerInput = () => {
         ])
     };
 
-    engineerInput();
+    const internInput = () => {
+        return inquirer.prompt([ {
+        
+            type: 'input',
+            name: 'name',
+            message: "Enter an intern's name. (Required)",
+            validate: name => {
+                if (name) {
+                    return true;
+                } else {
+                    console.log('Please enter a valid response!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Enter an intern's ID.",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter an intern's email.",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter the school name the intern attends."
+        }
+    
+        ])
+    };
 
+    internInput();
+    
 
     
