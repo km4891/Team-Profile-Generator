@@ -2,13 +2,29 @@ const generateManagerInput = manager => {
     return `
     <div class = "col col-lg-3">
         <div class = "card border-dark">
-        <div class = "card-header">${manager.getName()}</div>
-        <div><i class = "fas fa-mug-hot></i>${manager.getRole()}</div>
+        <h2 class = "card-header">${manager.getName()}</h2>
+        <h2><i class="fas fa-mug-hot"></i>${manager.getRole()}</h2>
         <div class = "info-section">
          <ul>
             <li> ID: ${manager.getId()}</li>
             <li> Email: ${manager.getEmail()}</li>
-            <li> Office Number: ${manager.getOfficeNumber()}<li>
+            <li> Office Number: ${manager.getOfficeNumber()}</li>
+        </div>
+        </div>
+    `
+}
+
+const generateEngineerInput = engineer => {
+    return `
+    <div class = "col col-lg-3">
+        <div class = "card border-dark">
+        <div class = "card-header">${manager.getName()}</div>
+        <div><i class = "fas fa-glasses></i>${manager.getRole()}</div>
+        <div class = "info-section">
+         <ul>
+            <li> ID: ${manager.getId()}</li>
+            <li> Email: ${manager.getEmail()}</li>
+            <li> Office Number: ${manager.getGithub()}<li>
         </div>
         </div>
     `
@@ -20,7 +36,7 @@ const generatePage = (team) => {
     let staffHtml = '';
     staff.forEach((staffMember) => {
         if (staffMember.getRole() === 'Engineer') {
-            staffHtml += generateEngineer(staffMember);
+            staffHtml += generateEngineerInput(staffMember);
         } else if (staffMember.getRole() === 'Intern') {
             staffHtml += generateIntern(staffMember);
         }
@@ -31,9 +47,9 @@ const generatePage = (team) => {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Team Profiles</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-            <link rel="stylesheet" href="./style.css">
+            <title>My Team</title>
+            <link rel="stylesheet "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous">
+            <link rel="stylesheet "href="./style.css">
         </head>
         <body>
             <header>
@@ -46,7 +62,7 @@ const generatePage = (team) => {
                 </div>
             </main>
         </body>
-        <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg="nest"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         </html>
     `
 }
