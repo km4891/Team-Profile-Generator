@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { rejects } = require('assert');
 
-const writeFile = (fileContent) => {
+const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/index.html', fileContent, err => {
             if (err) {
@@ -10,7 +10,7 @@ const writeFile = (fileContent) => {
             }
             resolve({
                 ok: true,
-                message: 'Your file has been created.'
+                message: 'File created!.'
             });
         });
     });
@@ -25,7 +25,7 @@ const copyFile = () => {
             }
             resolve({
                 ok: true,
-                message: 'Style sheet recaptured!'
+                message: 'Style sheet copied!'
             });
         })
     })
