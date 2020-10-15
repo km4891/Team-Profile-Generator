@@ -3,5 +3,37 @@ header {
     color: white;
     display: flex;
     justify-content: center;
+    padding: 15px;
 }
+
+
+
+.row {
+    margin-right: 0px;
+}
+
+
+.card {
+    margin-top: 18px;
+    margin-right: 2px;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
+
+
+.card-border {
+    border-bottom: solid transparent 1px;
+    background-color: deepskyblue;
+    color: white;
+}
+
+.card-header {
+    border-bottom: solid transparent 1px;
+}
+
+
+
 

@@ -1,60 +1,69 @@
 const generateManagerInput = manager => {
     return `
-    <div class = "row col-lg-3">
-        <div class = "card border-dark">
-        <h2 class = "card-header">${manager.getName()}</h2>
-        <h2><i class="fas fa-mug-hot"></i>${manager.getRole()}</h2>
-        <div class = "info-section">
-         <ul>
-            <li> ID: ${manager.getId()}</li>
-            <li> Email: ${manager.getEmail()}</li>
-            <li> Office Number: ${manager.getOfficeNumber()}</li>
+    <div class ="col col-sm-12 col-md-6 col-lg-4">
+        <div class="card  ml-2">
+        <div class = "card-border">
+            <h2 class="card-header">${manager.getName()}</h2>
+            <h3 class="card-title ml-2"><i class="fas fa-mug-hot"></i> ${manager.getRole()}</h3></div>
+            <div class="card-body">
+                <ul class ="list-group">
+                    <li class="list-group-item">ID: ${manager.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getName()}</a></li>
+                    <li class="list-group-item"> Office Number: ${manager.getOfficeNumber()}</li>
+                </ul>
+            </div>
         </div>
-        </div>
+    </div>
     `
 }
 
 const generateEngineerInput = engineer => {
     return `
-    <div class = "row col-lg-3">
-        <div class = "card border-dark">
-        <div class = "card-header">${engineer.getName()}</div>
-        <div><i class = "fas fa-glasses></i>${engineer.getRole()}</div>
-        <div class = "info-section">
-         <ul>
-            <li> ID: ${engineer.getId()}</li>
-            <li> Email: ${engineer.getEmail()}</li>
-            <li> Github Profile: ${engineer.getGithub()}<li>
+    <div class ="col col-sm-12 col-md-6 col-lg-4">
+        <div class="card  ml-2">
+        <div class = "card-border">
+            <h2 class="card-header">${engineer.getName()}</h2>
+            <h3 class="card-title ml-2"><i class="fas fa-glasses"></i> ${engineer.getRole()}</h3></div>
+            <div class="card-body">
+                <ul class ="list-group">
+                    <li class="list-group-item">ID: ${engineer.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getName()}</a></li>
+                    <li class="list-group-item"> GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+                </ul>
+            </div>
         </div>
-        </div>
+    </div>
     `
 }
 
 const generateInternInput = intern => {
     return `
-    <div class = "row col-lg-3">
-        <div class = "card border-dark">
-        <div class = "card-header">${intern.getName()}</div>
-        <div><i class = "fas fa-glasses></i>${intern.getRole()}</div>
-        <div class = "info-section">
-         <ul>
-            <li> ID: ${intern.getId()}</li>
-            <li> Email: ${intern.getEmail()}</li>
-            <li> School Name: ${intern.getSchool()}<li>
+    <div class ="col col-sm-12 col-md-6 col-lg-4">
+        <div class="card  ml-2">
+        <div class = "card-border">
+            <h2 class="card-header">${intern.getName()}</h2>
+            <h3 class="card-title ml-2"><i class="fas fa-user-graduate"></i> ${intern.getRole()}</h3></div>
+            <div class="card-body">
+                <ul class ="list-group">
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getName()}</a></li>
+                    <li class="list-group-item"> School: ${intern.getSchool()}</li>
+                </ul>
+            </div>
         </div>
-        </div>
+    </div>
     `
 }
 
 // main html template
 const generatePage = (team) => {
     const {manager, staff} = team;
-    let staffHtml = '';
+    let staffCompile = '';
     staff.forEach((staffMember) => {
         if (staffMember.getRole() === 'Engineer') {
-            staffHtml += generateEngineerInput(staffMember);
+            staffCompile += generateEngineerInput(staffMember);
         } else if (staffMember.getRole() === 'Intern') {
-            staffHtml += generateInternInput(staffMember);
+            staffCompile += generateInternInput(staffMember);
         }
     });
     return `
@@ -74,7 +83,7 @@ const generatePage = (team) => {
             <main>
                 <div class="row">
                         ${generateManagerInput(manager)}
-                        ${staffHtml}
+                        ${staffCompile}
                 </div>
             </main>
         </body>
